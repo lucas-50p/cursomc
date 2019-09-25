@@ -38,6 +38,7 @@ public class Cliente implements Serializable {
 	
 	//associacao entre  pedidos e cliente bidirecional
 	//colecao no coloca no construtor
+	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 	
 	public Cliente() {

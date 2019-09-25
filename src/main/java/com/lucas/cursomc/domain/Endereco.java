@@ -2,26 +2,38 @@ package com.lucas.cursomc.domain;
 
 import java.io.Serializable;
 
-import com.lucas.cursomc.domain.enums.TipoCliente;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Endereco implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String logradouro;
 	private String numero;
 	private String complemento;
-	private TipoCliente bairro;
+	private String bairro;
 	private String cep;
 	
+	@ManyToOne
+	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
 	
+	@ManyToOne
+	@JoinColumn(name="cidade_id")
 	private Cidade cidade;
 	
 	public Endereco() {
 	}
 
-	public Endereco(Integer id, String logradouro, String numero, String complemento, TipoCliente bairro, String cep,
+	public Endereco(Integer id, String logradouro, String numero, String complemento, String bairro, String cep,
 			Cliente cliente, Cidade cidade) {
 		super();
 		this.id = id;
@@ -32,7 +44,6 @@ public class Endereco implements Serializable {
 		this.cep = cep;
 		this.cliente = cliente;
 		this.setCidade(cidade);
-		
 	}
 
 	public Integer getId() {
@@ -67,11 +78,11 @@ public class Endereco implements Serializable {
 		this.complemento = complemento;
 	}
 
-	public TipoCliente getBairro() {
+	public String getBairro() {
 		return bairro;
 	}
 
-	public void setBairro(TipoCliente bairro) {
+	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
 
@@ -123,6 +134,7 @@ public class Endereco implements Serializable {
 			return false;
 		return true;
 	}
+	
 	
 	
 }

@@ -2,7 +2,7 @@ package com.lucas.cursomc.domain.enums;
 
 public enum EstadoPagamento {
 	
-	PEDENTE(1, "Pedente"),
+	PENDENTE(1, "Pedente"),
 	QUITADO(2, "Quitado"),
 	CANCELADO(3, "Cancelado");
 	

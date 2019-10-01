@@ -36,7 +36,7 @@ public class ClienteNewDTO implements Serializable {
 	
 	private String bairro;
 	
-	
+	//@NotEmpty(message= "Preenchimento obrigatorio")
 	private String cep;
 	
 	@NotEmpty(message= "Preenchimento obrigatorio")
